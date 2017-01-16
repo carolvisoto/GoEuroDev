@@ -13,7 +13,7 @@ public class BusRoutesDataTest {
         int departure = 1;
         for (int r=0; r < arrays.length; r++) {
             for (int c=0; c < arrays[r].length; c++) {
-                //TODO how to see if the values belongs to the same line?
+                //TODO  how to check if the values belongs to the same line?
             }
         }
 
