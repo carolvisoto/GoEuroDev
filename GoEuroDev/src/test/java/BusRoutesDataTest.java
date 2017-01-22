@@ -1,21 +1,25 @@
+import org.junit.Assert;
 import org.junit.Test;
+
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class BusRoutesDataTest {
 
     @Test
-    public void shouldFindTheDirectRoute (){
-        int array1[] = {1,4,7};
-        int array2[] = {10,5,2};
-        int array3[] = {9,6,8};
+    public void shouldReturnTrueIfFindTheDirectRoute (){
+        int arrival = 5;
+        int departure = 10;
+        BusRoutesData busRouteData = new BusRoutesData();
+        assertThat(busRouteData.fetchBusRoutes(departure, arrival), equalTo(true));
 
-        int[][] arrays = { array1, array2, array3 };
-        int arrivel = 7;
-        int departure = 1;
-        for (int r=0; r < arrays.length; r++) {
-            for (int c=0; c < arrays[r].length; c++) {
-                //TODO  how to check if the values belongs to the same line?
-            }
-        }
+    }
 
+    @Test
+    public void shouldReturnFalseIfNotFindTheDirectRoute (){
+        int arrival = 0;
+        int departure = 5;
+        BusRoutesData busRouteData = new BusRoutesData();
+        assertThat(busRouteData.fetchBusRoutes(departure, arrival), equalTo(false));
     }
 }
