@@ -23,7 +23,6 @@ public class BusRoutesData {
                 return true;
             }
         }
-
      return false;
     }
 }
