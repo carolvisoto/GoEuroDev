@@ -12,7 +12,6 @@ public class BusRoutesDataTest {
         int departure = 10;
         BusRoutesData busRouteData = new BusRoutesData();
         assertThat(busRouteData.fetchBusRoutes(departure, arrival), equalTo(true));
-
     }
 
     @Test
