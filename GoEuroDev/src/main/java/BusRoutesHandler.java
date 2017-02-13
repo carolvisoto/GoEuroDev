@@ -8,11 +8,19 @@ import java.io.IOException;
 
 public class BusRoutesHandler extends AbstractHandler {
     public void handle(String target, Request baseRequest, HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        BusRoutesData busRoutesData = new BusRoutesData();
+
+        Integer departure = Integer.parseInt(request.getParameter("dep_sid"));
+        Integer arrival = Integer.parseInt(request.getParameter("arr_sid"));
+        boolean isDirect = busRoutesData.fetchBusRoutes(departure, arrival);
+
         response.setContentType("application/json");
-        String departure = request.getParameter("dep_sid");
-        String arrivel = request.getParameter("arr_sid");
         response.setStatus(200);
-        response.getWriter().println("{\"dep_sid\":"+departure+", \"arr_sid\": "+arrivel+", \"direct_bus_route\": true}");
         baseRequest.setHandled(true);
+        response.getWriter().println("{\"dep_sid\":"+departure+",\n" +
+                "    \"arr_sid\": "+arrival+",\n" +
+                "    \"direct_bus_route\": "+isDirect+"\n" +
+                "}");
+
     }
 }

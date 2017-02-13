@@ -1,7 +1,7 @@
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.ContextHandler;
 
-public class BusRouteService {
+public class BusRoutes {
 
     public static void main (String args []) throws Exception {
         Server server = new Server(8088);
